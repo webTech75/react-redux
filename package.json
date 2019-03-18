@@ -1,0 +1,24 @@
+{
+  "name": "react-redux",
+  "version": "1.0.0",
+  "description": "React Redux Server side rendering",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webTech75/react-redux.git"
+  },
+  "author": "Amr Elhabbal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webTech75/react-redux/issues"
+  },
+  "homepage": "https://github.com/webTech75/react-redux#readme",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
