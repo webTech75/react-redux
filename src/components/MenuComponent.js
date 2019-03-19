@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Media } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 
 export default class Menu extends Component {
 
@@ -11,16 +11,13 @@ export default class Menu extends Component {
     render() {
         const menu = this.props.dishes.map((dish, i) => {
             return (
-                <div key={i} className="col-12 mt-5">
-                    <Media tag="li">
-                        <Media left middle>
-                            <Media object src={dish.image} alt={dish.name} />
-                        </Media>
-                        <Media body className="ml-5">
-                            <Media heading>{dish.name}</Media>
-                            <p>{dish.description}</p>
-                        </Media>
-                    </Media>
+                <div key={i} className="col-12 col-md-5 m-1">
+                    <Card tag="li">
+                        <CardImg width="100%" object src={dish.image} alt={dish.name} />
+                        <CardImgOverlay body className="ml-5">
+                            <CardTitle heading>{dish.name}</CardTitle>
+                        </CardImgOverlay>
+                    </Card>
                 </div>
             )
         })
@@ -28,9 +25,7 @@ export default class Menu extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <Media list>
                         {menu}
-                    </Media>
                 </div>
             </div>
         )
