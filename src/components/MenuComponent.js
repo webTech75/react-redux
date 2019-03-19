@@ -6,16 +6,42 @@ export default class Menu extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            selectedDish: null
+        }
+
     }
 
+    handleSelectedDish(dish) {
+        this.setState({selectedDish: dish});
+    }
+
+    renderDish(dish) {
+        if (dish !== null) {
+            return(
+                <Card>
+                    <CardImg width="100%" src={dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            )
+        }
+        else {
+            return(
+                <div></div>
+            )
+        }
+    }
     render() {
         const menu = this.props.dishes.map((dish, i) => {
             return (
                 <div key={i} className="col-12 col-md-5 m-1">
-                    <Card tag="li">
-                        <CardImg width="100%" object src={dish.image} alt={dish.name} />
-                        <CardImgOverlay body className="ml-5">
-                            <CardTitle heading>{dish.name}</CardTitle>
+                    <Card onClick={() => this.handleSelectedDish(dish)}>
+                        <CardImg width="100%" src={dish.image} alt={dish.name} />
+                        <CardImgOverlay className="ml-5">
+                            <CardTitle>{dish.name}</CardTitle>
                         </CardImgOverlay>
                     </Card>
                 </div>
@@ -25,7 +51,10 @@ export default class Menu extends Component {
         return (
             <div className="container">
                 <div className="row">
-                        {menu}
+                    {menu}
+                </div>
+                <div className="row">
+                    {this.renderDish(this.state.selectedDish)}
                 </div>
             </div>
         )
