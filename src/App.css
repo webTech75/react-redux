@@ -31,3 +31,11 @@ address{
 .navbar-dark {
    background-color: #512DA8;
 }
+
+.padding-right {
+   padding-right: 20px;
+}
+
+.margin-btm{
+   margin-bottom: 25px;
+}
