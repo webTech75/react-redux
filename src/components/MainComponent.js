@@ -21,15 +21,6 @@ class MainComponent extends Component {
     leaders: LEADERS,
     selectedDish: null
   }
-
-
-  // handleSelectedDish(dishId) {
-  //   this.setState({selectedDish: dishId});
-  // }
-          /*<Menu dishes={this.state.dishes}
-              handleSelectedDish={(dishId) => this.handleSelectedDish(dishId)}
-          />
-            <DishDetails dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />*/
   render() {
     const HomePage = () => (
       <Home
