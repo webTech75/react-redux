@@ -19,6 +19,8 @@ export default class CommentForm extends Component {
    }
 
    handleSubmit = values => {
+      this.toggleModal();
+      this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
       console.log("form is submitted", JSON.stringify(values))
   }
    render() {
@@ -46,8 +48,8 @@ export default class CommentForm extends Component {
                      </Row>
                      <Row className="form-group">
                         <Col>
-                           <Label htmlFor="yourname">Your Name</Label>
-                           <Control.text model=".yourname" id="yourname" name="yourname"
+                           <Label htmlFor="author">Your Name</Label>
+                           <Control.text model=".author" id="author" name="author"
                                  placeholder="Your Name"
                                  className="form-control"
                                  validators={{
@@ -58,7 +60,7 @@ export default class CommentForm extends Component {
                            />
                            <Errors
                               className="text-danger"
-                              model=".yourname"
+                              model=".author"
                               show="touched"
                               messages={{
                                     required: "Required",
@@ -70,8 +72,8 @@ export default class CommentForm extends Component {
                      </Row>
                      <Row className="form-group">
                         <Col>
-                           <Label htmlFor="message">Comment</Label>
-                           <Control.textarea model=".message" id="message" name="message"
+                           <Label htmlFor="comment">Comment</Label>
+                           <Control.textarea model=".comment" id="comment" name="comment"
                               rows="6"
                               className="form-control"
                            />

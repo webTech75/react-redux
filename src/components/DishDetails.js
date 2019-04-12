@@ -17,7 +17,7 @@ const RenderDish = ({dish}) => (
     </div>
 )
 
-const RenderComments = ({comments}) => (
+const RenderComments = ({comments, addComment, dishId}) => (
     comments != null ? (
         <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
@@ -26,13 +26,13 @@ const RenderComments = ({comments}) => (
                     comments.map((comment) => (
                         <li key={comment.id}>
                             <p>{comment.comment}</p>
-                            <p>-- {comment.auther} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))} </p>
+                            <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))} </p>
                         </li>
                     ))
                 }
             </ul>
             <div>
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
         </div>
     ):(
@@ -58,7 +58,11 @@ export const DishDetails = (props) => {
                 </div>
                 <div className="row">
                    <RenderDish dish={props.dish} />
-                   <RenderComments comments={props.comment} />
+                   <RenderComments
+                    comments={props.comment}
+                    addComment={props.addComment}
+                    dishId={props.dish.id}
+                   />
                 </div>
             </div>
          ): (
@@ -66,5 +70,3 @@ export const DishDetails = (props) => {
         )
     )
 }
-
-// {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
