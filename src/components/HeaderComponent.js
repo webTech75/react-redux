@@ -31,7 +31,7 @@ export default class Header extends Component {
                <div className="container">
                   <NavbarToggler onClick={this.toggleNav} />
                   <NavbarBrand className="mr-auto" href="/">
-                     <img src="assets/images/logo.png" height="30" width="41" alt="Ristorante Con Fusion" />
+                     <img src="assets/images/logo.png" height="30" width="41" alt="Ristorant" />
                   </NavbarBrand>
                   <Collapse isOpen={this.state.isNavOpen} navbar>
                      <Nav navbar>
@@ -70,7 +70,7 @@ export default class Header extends Component {
                <div className="container">
                   <div className="row row-header">
                      <div className="col-12 col-sm-6">
-                        <h1>Ristorant Con Fusion</h1>
+                        <h1>RISTORANT</h1>
                         <p>We take inspiration from the world's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
                      </div>
                   </div>

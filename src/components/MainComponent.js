@@ -5,7 +5,7 @@ import ContactComponent from './ContactComponent';
 import {DishDetails} from './DishDetails';
 import { Footer } from './FooterComponent';
 import  Home  from './HomeComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './AboutComponent';
 import { connect } from 'react-redux';
 import { addComment, fetchDishes } from '../containers/ActionCreaters';
@@ -47,7 +47,6 @@ class MainComponent extends Component {
           <Route exact path='/contactus' component={() => <ContactComponent resetFeedbackForm={this.props.resetFeedbackForm} />} />
           <Redirect to='/home' />
         </Switch>
-
         <Footer />
       </div>
     );
