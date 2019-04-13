@@ -1,4 +1,6 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createForms } from 'react-redux-form';
+import { InitialFeedback } from './forms';
 import { Dishes } from './dishes';
 import { Comments } from './comments';
 import { Leaders } from './leaders';
@@ -11,7 +13,10 @@ const combinedReducer = combineReducers({
    dishes: Dishes,
    comments: Comments,
    promotions: Promotions,
-   leaders: Leaders
+   leaders: Leaders,
+   ...createForms({
+      feedback: InitialFeedback
+   })
 });
 
 const composeWithDevtools = composeWithDevTools(
