@@ -12,6 +12,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+## `npm i -g json-server`
+
+ Using `JSON-Server` to mock an API with 2 sec delay on port:3001
+ Go to the json-server directory in your terminal and at the prompt type: `json-server --watch db.json -d 2000 -p 3001`.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
