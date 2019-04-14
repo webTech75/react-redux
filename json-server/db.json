@@ -217,6 +217,22 @@
       "comment": "Great dish!",
       "date": "2019-04-14T04:31:52.172Z",
       "id": 21
+    },
+    {
+      "dishId": 0,
+      "rating": "3",
+      "author": "Amr Elhabbal",
+      "comment": "Test animations",
+      "date": "2019-04-14T05:03:15.790Z",
+      "id": 22
+    },
+    {
+      "dishId": 1,
+      "rating": "2",
+      "author": "Amr Elhabbal",
+      "comment": "Test",
+      "date": "2019-04-14T05:04:35.724Z",
+      "id": 23
     }
   ],
   "promotions": [
