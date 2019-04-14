@@ -8,13 +8,15 @@ import  Home  from './HomeComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import About from './AboutComponent';
 import { connect } from 'react-redux';
-import { addComment, fetchDishes } from '../containers/ActionCreaters';
+import { addComment, fetchDishes, fetchComments, fetchPromos } from '../containers/ActionCreaters';
 import { actions } from 'react-redux-form';
 
 class MainComponent extends Component {
 
   componentDidMount() {
     this.props.fetchDishes();
+    this.props.fetchComments();
+    this.props.fetchPromos();
   };
   render() {
     const HomePage = () => (
@@ -22,7 +24,9 @@ class MainComponent extends Component {
         dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
         dishesLoading={this.props.dishes.isLoading}
         dishesErr={this.props.dishes.err}
-        promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
+        promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
+        promosLoading={this.props.promotions.isLoading}
+        promosErr={this.props.promotions.err}
         leader={this.props.leaders.filter((leader) => leader.featured)[0]}
       />
     );
@@ -31,7 +35,8 @@ class MainComponent extends Component {
       <DishDetails dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
        isLoading={this.props.dishes.isLoading}
        err={this.props.dishes.err}
-       comment={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
+       comment={this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
+       commentsErr={this.props.comments.err}
        addComment={this.props.addComment}
       />
     )
@@ -64,7 +69,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
   fetchDishes: () => dispatch(fetchDishes()),
-  resetFeedbackForm: () => dispatch(actions.reset('feedback'))
+  resetFeedbackForm: () => dispatch(actions.reset('feedback')),
+  fetchComments: () => dispatch(fetchComments()),
+  fetchPromos: () => dispatch(fetchPromos()),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(MainComponent);
 

@@ -28,7 +28,7 @@ export const LEADERS = [
    },
    {
      id: 3,
-     name: 'Alberto Somayya',
+     name: 'Amr Elhabbal',
      image: '/assets/images/buffet.png',
      designation: 'Executive Chef',
      abbr: 'EC',
