@@ -209,6 +209,14 @@
       "comment": "This is a test!",
       "date": "2019-04-14T03:30:15.499Z",
       "id": 20
+    },
+    {
+      "dishId": 0,
+      "rating": "5",
+      "author": "Amr Elhabbal",
+      "comment": "Great dish!",
+      "date": "2019-04-14T04:31:52.172Z",
+      "id": 21
     }
   ],
   "promotions": [
