@@ -19,7 +19,7 @@ const RenderDish = ({dish}) => (
     </div>
 )
 
-const RenderComments = ({comments, addComment, dishId}) => (
+const RenderComments = ({comments, postComment, dishId}) => (
     comments != null ? (
         <div className="col-12 col-md-5 m-1">
             <h4>Comments</h4>
@@ -34,7 +34,7 @@ const RenderComments = ({comments, addComment, dishId}) => (
                 }
             </ul>
             <div>
-                <CommentForm dishId={dishId} addComment={addComment} />
+                <CommentForm dishId={dishId} postComment={postComment} />
             </div>
         </div>
     ):(
@@ -80,7 +80,7 @@ export const DishDetails = (props) => {
                    <RenderDish dish={props.dish} />
                    <RenderComments
                     comments={props.comment}
-                    addComment={props.addComment}
+                    postComment={props.postComment}
                     dishId={props.dish.id}
                    />
                 </div>
