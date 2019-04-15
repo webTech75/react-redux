@@ -2,25 +2,29 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseURL } from '../helper/baseURL';
+import { Loading } from './LoadingComponent';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader, i) => {
+    const leaders = props.leaders.leaders.map((leader, i) => {
         return (
-         <Media key={i} className="margin-btm">
-            <Media left className="padding-right">
-               <Media src={baseURL + leader.image} width="64" height="64" alt={leader.name} />
-            </Media>
-            <Media body>
-               <Media heading>
-                  {leader.name}
-               </Media>
-               <Media heading>
-                   {leader.designation}
-               </Media>
-               {leader.description}
-            </Media>
-         </Media>
+            <Fade in>
+                <Media key={i} className="margin-btm">
+                    <Media left className="padding-right">
+                    <Media src={baseURL + leader.image} width="64" height="64" alt={leader.name} />
+                    </Media>
+                    <Media body>
+                    <Media heading>
+                        {leader.name}
+                    </Media>
+                    <Media heading>
+                        {leader.designation}
+                    </Media>
+                        {leader.description}
+                    </Media>
+                </Media>
+            </Fade>
         );
     });
 
@@ -80,7 +84,9 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        {leaders}
+                        <Stagger in>
+                            {leaders}
+                        </Stagger>
                     </Media>
                 </div>
             </div>

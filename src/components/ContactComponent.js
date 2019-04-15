@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
-import { Control, Form, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 
 //Functions that help us to validate the form
@@ -12,6 +12,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val
 
 export default class Contact extends Component {
     handleSubmit = values => {
+        this.props.postFeedback(values);
         console.log("form is submitted", JSON.stringify(values))
         this.props.resetFeedbackForm();
     }
