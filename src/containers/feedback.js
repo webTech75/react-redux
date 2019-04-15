@@ -1,5 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-import { initialFeedback } from './forms';
 
 export const Feedback = (state, action) => {
    switch(action.type) {
