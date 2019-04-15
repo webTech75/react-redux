@@ -39,7 +39,7 @@ export const Footer = () => (
        </div>
        <div className="row justify-content-center">
            <div className="col-auto">
-               <p>© Copyright 2019 Ristorant</p>
+               <p>© Copyright 2019 Ristorante</p>
            </div>
        </div>
    </div>
